@@ -1,4 +1,5 @@
 # Task 1
+# line chart
 import pandas as pd
 import matplotlib.pyplot as plt
 df = pd.read_excel('C:/Users/TheLegitOne/Desktop/data_tasks.xlsx', sheet_name = 'task1')
@@ -36,8 +37,20 @@ plt.show()
 plt.savefig("Task1.png", dpi = 600)
 plt.clf()
 
+# Bar chart
+plt.bar(x_values, y_values, yerr = error_barValues, align = "center", ecolor = 'black', capsize = 10)
+plt.xticks([1,2,3,4,5,6,7,8,9])
+plt.yticks([0,5,10,15,20,25])
+plt.xlim((.5, 9.5))
+plt.ylabel("Temperature (C)", fontsize = 12)
+plt.xlabel("Time (min)", fontsize = 12)
+plt.title("Task 1", fontsize = 18)
+plt.savefig('Task1_2.png', dpi = 600)
+plt.show()
+plt.clf()
 
 # Task 2
+# Bar chart
 df2 = pd.read_excel('C:/Users/TheLegitOne/Desktop/data_tasks.xlsx', sheet_name = 'task2')
 
 barWidth = .25
@@ -64,3 +77,19 @@ plt.bar(r3, time3, width = barWidth, color = "#2d7f5e", edgecolor = "white", lab
 plt.xlabel("Time (hours)", fontweight = "bold")
 plt.ylabel("Temperature (C)", fontweight = "bold")
 plt.legend()
+plt.show()
+plt.savefig("Task2.png", dpi = 600)
+plt.clf()
+
+# Line chart
+line, caps, bars = plt.errorbar(x, time1, yerr = err1, fmt = "rs--", linewidth = 3, elinewidth = .5, ecolor = 'k', capsize = 5, capthick = 1)
+line, caps, bars = plt.errorbar(x, time2, yerr = err2, fmt = "bs--", linewidth = 3, elinewidth = .5, ecolor = 'k', capsize = 5, capthick = 1)
+line, caps, bars = plt.errorbar(x, time3, yerr = err3, fmt = "gs--", linewidth = 3, elinewidth = .5, ecolor = 'k', capsize = 5, capthick = 1)
+plt.title("Cities", fontsize = 18)
+plt.xlabel("Time (hours)", fontsize = 12)
+plt.ylabel("Temperature (C)", fontsize = 12)
+plt.xticks([1,2,3,4,5,6])
+plt.yticks([0,10,20,30,40,50])
+plt.legend(Header_names, numpoints = 1, loc = ("upper left"))
+plt.show()
+plt.savefig("Task2_2.png", dpi = 600)
